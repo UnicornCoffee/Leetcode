@@ -1,0 +1,16 @@
+class Solution:
+    def average(self, salary: List[int]) -> float:
+        
+        max_salary = max(salary)
+        min_salary = min(salary)
+        
+        salary_summed = 0
+        count = 0
+        
+        for s in salary:
+            if s != min_salary and s != max_salary:
+                salary_summed += s
+                count += 1
+                
+        
+        return salary_summed / count 
