@@ -1,0 +1,16 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        if len(ransomNote) > len(magazine):
+            return False
+        fmag = [0]*26
+        fran = [0]*26
+        
+        for i in range(len(magazine)):
+            if i < len(ransomNote):
+                fran[ord(ransomNote[i]) - ord('a')] += 1
+            fmag[ord(magazine[i]) - ord('a')] += 1
+            
+        for i in range(26):
+            if fran[i] > fmag[i]:
+                return False
+        return True
